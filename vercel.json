@@ -27,7 +27,7 @@
       "schedule": "0 * * * *"
     },
     {
-      "path": "/api/cron/daily-automation", 
+      "path": "/api/cron/daily-automation",
       "schedule": "0 9 * * *"
     },
     {
