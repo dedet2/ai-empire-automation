@@ -32,7 +32,7 @@
     }
   ],
   "env": {
-    "OPENAI_API_KEY": "@openai_api_key",
+    ////"OPENAI_API_KEY": "@openai_api_key",
     "APOLLO_API_KEY": "@apollo_api_key",
     "CALENDLY_API_KEY": "@calendly_api_key",
     "LINKEDIN_ACCESS_TOKEN": "@linkedin_access_token",
