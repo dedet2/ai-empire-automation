@@ -1,22 +1,12 @@
 {
   "version": 2,
   "name": "ai-empire-automation",
-  "functions": [
-    {
-      "src": "api/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb"
-      }
-    },
-    {
-      "src": "frontend/dashboard/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb"
-      }
+  "functions": {
+    "api/main.py": {
+      "maxDuration": 30,
+      "maxLambdaSize": "15mb"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
@@ -31,15 +21,6 @@
       "dest": "/frontend/dashboard/main.py"
     }
   ],
-  
-  "functions": {
-    "api/main.py": {
-      "maxDuration": 30
-    },
-    "frontend/dashboard/main.py": {
-      "maxDuration": 30
-    }
-  },
   "crons": [
     {
       "path": "/api/cron/hourly-automation",
