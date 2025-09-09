@@ -30,61 +30,52 @@ async def root():
         "roi": "197x"
     }
 
-@app.get("/api/health")
+@app.get("/health")
 async def health_check():
     return {"status": "healthy", "automation": "98%"}
 
-@app.post("/api/cron/hourly-automation")
+@app.post("/cron/hourly-automation")
 async def hourly_automation(background_tasks: BackgroundTasks):
     """Vercel cron job for hourly automation"""
     try:
         from core.ultra_automated_orchestrator import UltraAutomatedOrchestrator
-        
+
         def run_hourly_tasks():
             import asyncio
             orchestrator = UltraAutomatedOrchestrator()
             asyncio.run(orchestrator._autonomous_lead_generation())
             asyncio.run(orchestrator._autonomous_client_management())
-        
+
         background_tasks.add_task(run_hourly_tasks)
         return {"status": "Hourly automation started"}
     except Exception as e:
         return {"error": str(e)}
 
-@app.post("/api/cron/daily-automation") 
+@app.post("/cron/daily-automation")
 async def daily_automation(background_tasks: BackgroundTasks):
     """Vercel cron job for daily automation"""
     try:
         from core.ultra_automated_orchestrator import UltraAutomatedOrchestrator
-        
+
         def run_daily_tasks():
             import asyncio
             orchestrator = UltraAutomatedOrchestrator()
             asyncio.run(orchestrator._autonomous_revenue_cycle())
             asyncio.run(orchestrator._autonomous_content_pipeline())
             asyncio.run(orchestrator._autonomous_opportunity_hunting())
-        
+
         background_tasks.add_task(run_daily_tasks)
         return {"status": "Daily automation started"}
     except Exception as e:
         return {"error": str(e)}
 
-@app.post("/api/cron/weekly-briefing")
+@app.post("/cron/weekly-briefing")
 async def weekly_briefing(background_tasks: BackgroundTasks):
     """Vercel cron job for weekly briefing"""
     try:
         from core.ultra_automated_orchestrator import UltraAutomatedOrchestrator
-        
+
         def run_weekly_briefing():
             import asyncio
             orchestrator = UltraAutomatedOrchestrator()
-            asyncio.run(orchestrator._weekly_strategic_briefing())
-        
-        background_tasks.add_task(run_weekly_briefing)
-        return {"status": "Weekly briefing generated"}
-    except Exception as e:
-        return {"error": str(e)}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+            asyncio.run(orchestrator._weekly_strategic_brief
