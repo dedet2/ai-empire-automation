@@ -1,37 +1,23 @@
 {
   "version": 2,
-  "name": "ai-empire-automation",
-  "functions": {
-    "api/main.py": {
-      "maxDuration": 30
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/dashboard/(.*)",
-      "dest": "/frontend/dashboard/main.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/dashboard/main.py"
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
   ],
-  "crons": [
+  "routes": [
     {
-      "path": "/api/cron/hourly-automation",
-      "schedule": "0 * * * *"
-    },
-    {
-      "path": "/api/cron/daily-automation",
-      "schedule": "0 9 * * *"
-    },
-    {
-      "path": "/api/cron/weekly-briefing",
-      "schedule": "0 8 * * 1"
+      "src": "/(.*)",
+      "dest": "/api/index.py"
     }
-  ]
+  ],
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key",
+    "APOLLO_API_KEY": "@apollo_api_key",
+    "CALENDLY_API_KEY": "@calendly_api_key",
+    "AUTOMATION_LEVEL": "98_percent",
+    "DAILY_REVENUE_TARGET": "1000",
+    "ENVIRONMENT": "production"
+  }
 }

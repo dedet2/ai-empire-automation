@@ -2,48 +2,50 @@
 
 **Dr. Dédé Tetsubayashi's Ultra-Automated AI Business Empire**
 
-## Overview
-Complete 25-agent AI business automation system operating at 98%+ autonomy, requiring only 30 minutes of manual oversight per week.
+## 🚀 Live System
+- **Status**: Operational
+- **Automation Level**: 98%+ 
+- **Manual Intervention**: 30 minutes/week
+- **Revenue Target**: $25,000/month
 
-## Features
-- 🤖 25 specialized AI agents
-- 📊 Real-time business dashboard  
-- 💰 Autonomous revenue generation
-- 👥 Automated lead generation (100+ daily)
-- 📝 Automated content creation (8+ pieces daily)
-- 🎯 Autonomous opportunity hunting
-- 📈 Self-optimizing performance
+## 📊 Quick Start
+This system is designed for immediate deployment on Vercel.
 
-## Automation Level
-- **98%+ Automated Operations**
-- **2% Manual Intervention** (30 min/week)
-- **$25K+ Monthly Revenue Target**
-- **ROI: 197x**
+### API Endpoints
+- `/` - System status and overview
+- `/api/health` - Health check
+- `/api/status` - Detailed system status  
+- `/api/metrics` - Performance metrics
+- `/api/webhook/automation` - Automation triggers
 
-## Tech Stack
-- Python 3.9+
-- Streamlit (Dashboard)
-- OpenAI GPT-4 (Decision Engine)
-- SQLite/PostgreSQL (Database)
-- FastAPI (API Layer)
-- Vercel (Deployment)
+### Environment Variables Required
+```
+OPENAI_API_KEY=your-openai-key
+APOLLO_API_KEY=your-apollo-key  
+CALENDLY_API_KEY=your-calendly-key
+AUTOMATION_LEVEL=98_percent
+DAILY_REVENUE_TARGET=1000
+ENVIRONMENT=production
+```
 
-## Revenue Projections
-- Month 1: $25,000
-- Month 3: $75,000
-- Month 6: $150,000
-- Year 1: $650,000+
-
-## Deployment
-This system is designed for easy deployment on Vercel with GitHub integration.
-
-1. Upload this repository to GitHub
+## 🔧 Deployment
+1. Push to GitHub
 2. Connect to Vercel
 3. Add environment variables
 4. Deploy automatically
 
-## Environment Variables Required
-See `.env.example` for the complete list of required API keys and configuration.
+## 💰 Revenue Projections
+- **Month 1**: $25,000
+- **Month 3**: $75,000  
+- **Month 6**: $150,000
+- **Year 1**: $650,000+
+
+## 🎯 Features
+- Automated lead generation (100+ daily)
+- Autonomous content creation (8+ pieces daily)
+- Self-optimizing revenue cycles
+- Intelligent client management
+- Strategic weekly briefings
 
 ---
 *Built with ❤️ and 🤖 by Dr. Dédé Tetsubayashi*
