@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "name": "ai-empire-automation",
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    },
+    {
+      "src": "frontend/dashboard/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/dashboard/(.*)",
+      "dest": "/frontend/dashboard/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dashboard/main.py"
+    }
+  ],
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key",
+    "APOLLO_API_KEY": "@apollo_api_key",
+    "CALENDLY_API_KEY": "@calendly_api_key",
+    "LINKEDIN_ACCESS_TOKEN": "@linkedin_access_token",
+    "STRIPE_API_KEY": "@stripe_api_key",
+    "DATABASE_URL": "@database_url",
+    "AUTOMATION_LEVEL": "98_percent",
+    "ENVIRONMENT": "production"
+  },
+  "functions": {
+    "api/main.py": {
+      "maxDuration": 30
+    },
+    "frontend/dashboard/main.py": {
+      "maxDuration": 30
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/hourly-automation",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/daily-automation", 
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/weekly-briefing",
+      "schedule": "0 8 * * 1"
+    }
+  ]
+}
