@@ -3,8 +3,7 @@
   "name": "ai-empire-automation",
   "functions": {
     "api/main.py": {
-      "maxDuration": 30,
-      "maxLambdaSize": "15mb"
+      "maxDuration": 30
     }
   },
   "routes": [
